@@ -1,0 +1,72 @@
+<br>
+<h2>Movie Analysis</h2>
+
+<hr>
+<p class="highlight">{{movies.length}} movies found</p>
+<div class="row">
+  <div class="col-12">
+    <p-table id="movies-table" #dt [columns]="cols" [value]="movies" [paginator]="true" [rows]="10" [responsive]="true" [resizableColumns]="true"
+      columnResizeMode="expand">
+      <ng-template pTemplate="caption">
+        Movie Analysis Table
+      </ng-template>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" [pSortableColumn]="col.field" pResizableColumn>
+            {{col.header}}
+            <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"></p-sortIcon>
+          </th>
+        </tr>
+        <tr>
+          <th *ngFor="let col of columns" [ngSwitch]="col.field" class="ui-fluid">
+            <input pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)" [value]="dt.filters[col.field]?.value">
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-movie>
+        <tr>
+          <td>
+            <span> {{movie.movie_title}}</span>
+          </td>
+          <td>
+            <span> {{movie.director_name}}</span>
+          </td>
+          <td>
+            <span> {{movie.actor_1_name}}</span>
+          </td>
+          <td>
+            <span> {{movie.actor_2_name}}</span>
+          </td>
+          <td>
+            <span class="text-primary"> {{movie.genres}}</span>
+          </td>
+          <td>
+            <span> {{movie.language}}</span>
+          </td>
+          <td>
+            <span> {{movie.country}}</span>
+          </td>
+          <td>
+            <span> {{movie.content_rating}}</span>
+          </td>
+          <td>
+            <span> {{movie.budget}}</span>
+          </td>
+          <td>
+            <span> {{movie.title_year}}</span>
+          </td>
+          <td>
+            <span class="text-bold text-primary"> {{movie.plot_keywords}}</span>
+          </td>
+          <td>
+            <span>
+              <a class="text-primary" href="{{movie.movie_imdb_link}}" target="_blank">{{movie.movie_imdb_link}}</a>
+            </span>
+          </td>
+        </tr>
+      </ng-template>
+
+    </p-table>
+
+  </div>
+</div>

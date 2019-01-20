@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+
+$white : #ffff;
+$dark-color-primary: #212121;
+$dark-color-secondary:#4B515D;
+
+@import url("../node_modules/primeng/resources/primeng.min.css");
+
+$light-color-primary: #ff4444;
+$light-color-secondary:#ff4444;
+$light:rgb(240, 236, 236);
+
+.dark-mode {
+
+  background: $light;
+  .navbar{
+    background: $dark-color-primary;
+  }
+  a{
+    color: $white;
+  }
+  h1,h2,h3,h4,h5,h6,p{
+    color: $dark-color-primary
+  }
+  .highlight{
+    color: $dark-color-secondary
+  }
+  
+}
+
+
+.light-mode {
+  background: $light;
+  .navbar{
+    background: $light-color-primary;
+    color: $white
+  }
+  a{
+    color: $white;
+  }
+  h1,h2,h3,h4,h5,h6,p{
+    color: $light-color-primary
+  }
+  .highlight{
+    color: $light-color-secondary
+  }
+
+  
+  
+}
